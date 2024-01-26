@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the number</h1>
+        <input type="number" id="inputt"/>
+        <button type="button" onclick="check()">check</button>
+        <p id="para">your guess is Right/Wrong</p>
+        <h3 id="score">Score:10</h3>
+    </div>
+    <script>
+        var inputvalue=document.getElementById("inputt");
+        var para=document.getElementById("para");
+        var scoredisp=document.querySelector("#score");
+        var score=10;
+       
+        function check()
+        { 
+            var random=Math.floor(Math.random()*10)+1;
+            var inpval=inputvalue.value;
+            console.log("random :"+random);
+            console.log("input :"+inpval);
+           if(inpval==random)
+           {
+             para.textContent="your guess is correct";
+             window.alert("your guess is correct");
+           }
+           else
+           {
+            para.textContent="your guess is wrong";
+            score=score-1;
+            scoredisp.innerHTML="score:"+score;
+             if(score==0)
+             {
+                scoredisp.innerHTML="score:"+"0";
+                window.alert("sorry ! your chance is over");
+             }
+           }
+        }
+    </script>
+</body>
+</html>
